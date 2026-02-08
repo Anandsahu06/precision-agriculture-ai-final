@@ -1,4 +1,4 @@
-export const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "https://precision-agriculture-ai-backend.onrender.com"
+export const BACKEND_URL = (process.env.NEXT_PUBLIC_API_URL || "https://precision-agriculture-ai-backend.onrender.com").replace(/\/$/, "")
 
 export async function analyzeImage(file: File) {
     const formData = new FormData()
