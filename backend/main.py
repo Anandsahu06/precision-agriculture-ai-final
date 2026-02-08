@@ -154,8 +154,8 @@ async def analyze_image(file: UploadFile = File(...)):
             "confidence": confidence,
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "imageName": file.filename,
-            "heatmapUrl": f"/{ndvi_path.replace(os.sep, '/')}",
-            "rgbUrl": f"/{rgb_path.replace(os.sep, '/')}",
+            "heatmapUrl": f"https://precision-agriculture-ai-backend.onrender.com/{ndvi_path.replace(os.sep, '/')}",
+            "rgbUrl": f"https://precision-agriculture-ai-backend.onrender.com/{rgb_path.replace(os.sep, '/')}",
             "insights": insights
         }
 
