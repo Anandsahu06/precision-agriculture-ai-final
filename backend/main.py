@@ -154,8 +154,8 @@ async def analyze_image(file: UploadFile = File(...)):
             "confidence": confidence,
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "imageName": file.filename,
-            "heatmapUrl": f"http://localhost:8000/{ndvi_path.replace(os.sep, '/')}",
-            "rgbUrl": f"http://localhost:8000/{rgb_path.replace(os.sep, '/')}",
+            "heatmapUrl": f"/{ndvi_path.replace(os.sep, '/')}",
+            "rgbUrl": f"/{rgb_path.replace(os.sep, '/')}",
             "insights": insights
         }
 
