@@ -1,4 +1,4 @@
-export const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+export const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "https://precision-agriculture-ai-backend.onrender.com"
 
 export async function analyzeImage(file: File) {
     const formData = new FormData()
