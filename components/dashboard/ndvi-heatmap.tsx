@@ -15,12 +15,19 @@ const LEGEND_ITEMS = [
   { color: "#1a9850", label: "Excellent Health", range: "0.8 to 1.0" },
 ]
 
+import { BACKEND_URL } from "@/lib/api"
+
 export function NdviHeatmap() {
   const { result } = useAnalysis()
   const [zoom, setZoom] = useState(false)
 
-  const ndviSrc = result?.heatmapUrl || "/images/ndvi-heatmap.jpg"
-  const rgbSrc = result?.rgbUrl || "/images/rgb-field.jpg"
+  const ndviSrc = result?.heatmapUrl
+    ? (result.heatmapUrl.startsWith('http') ? result.heatmapUrl : `${BACKEND_URL}${result.heatmapUrl}`)
+    : "/images/ndvi-heatmap.jpg"
+
+  const rgbSrc = result?.rgbUrl
+    ? (result.rgbUrl.startsWith('http') ? result.rgbUrl : `${BACKEND_URL}${result.rgbUrl}`)
+    : "/images/rgb-field.jpg"
 
   return (
     <Card className="border-border/60">

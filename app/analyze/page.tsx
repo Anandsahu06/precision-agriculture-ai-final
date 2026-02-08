@@ -6,6 +6,7 @@ import { ImageUploader } from "@/components/analyze/image-uploader"
 import { AnalysisRunner } from "@/components/analyze/analysis-runner"
 import { Footer } from "@/components/footer"
 import { useAnalysis } from "@/lib/analysis-context"
+import { BACKEND_URL } from "@/lib/api"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
@@ -130,7 +131,10 @@ function AnalyzeContent() {
       setLocation({ lat: result.lat, lon: result.lon })
     }
     if (result?.rgbUrl) {
-      setPreview(result.rgbUrl)
+      const fullUrl = result.rgbUrl.startsWith('http')
+        ? result.rgbUrl
+        : `${BACKEND_URL}${result.rgbUrl}`
+      setPreview(fullUrl)
       setFileName(result.imageName || "satellite_capture.jpg")
     }
   }, [result])
